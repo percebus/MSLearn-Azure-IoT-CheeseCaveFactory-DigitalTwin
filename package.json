@@ -7,6 +7,7 @@
     "prettier": "prettier .",
     "prettier:check": "npm run prettier -- --check",
     "prettier:write": "npm run prettier -- --write",
+    "style": "npm run prettier:write",
     "lint": "npm run prettier:check",
     "test": "exit 0"
   },
