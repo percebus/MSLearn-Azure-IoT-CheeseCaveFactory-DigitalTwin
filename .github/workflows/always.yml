@@ -1,0 +1,47 @@
+name: Verification
+on:
+  push:
+  schedule:
+    - cron: "0 0 * * *"
+
+env:
+  NODE_VERSION: "16.x"
+
+jobs:
+  # SRC https://medium.com/attest-product-and-technology/adding-a-unique-github-build-identifier-7aa2e83cadca
+  id:
+    name: Build Id
+    runs-on: ubuntu-latest
+    steps:
+      - name: "id"
+        id: id
+        run: echo "BUILD_ID=$(date +%s)" >> $GITHUB_ENV
+      - name: echo
+        run: echo ${{ env.BUILD_ID }}
+
+  lint:
+    name: Lint
+    needs: id
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: ls
+        run: ls -la
+
+      - name: setup node@${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: setup
+        run: npm run setup:ci --if-present
+      - name: npm install
+        run: npm ci
+      - name: ls node_modules
+        run: ls -la ./node_modules
+      - name: npm audit
+        run: npm audit
+        continue-on-error: true # XXX?
+
+      - name: npm lint
+        run: npm run lint

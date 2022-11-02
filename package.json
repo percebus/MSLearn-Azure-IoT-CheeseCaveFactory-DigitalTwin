@@ -1,0 +1,39 @@
+{
+  "name": "cheesecavefactory-digitaltwin",
+  "version": "0.1.0",
+  "description": "Azure IoT Digital Twin",
+  "main": "index.js",
+  "scripts": {
+    "prettier": "prettier .",
+    "prettier:check": "npm run prettier -- --check",
+    "prettier:write": "npm run prettier -- --write",
+    "style": "npm run prettier:write",
+    "lint:sh": "bash scripts/bash/lint.ba.sh",
+    "lint:all": "npm run prettier:check",
+    "lint": "npm run lint:sh && npm run lint:all",
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/percebus/MSLearn-Azure-IoT-CheeseCaveFactory-DigitalTwin.git"
+  },
+  "keywords": [
+    "azure",
+    "IoT",
+    "digital",
+    "twins",
+    "DT",
+    "JSON",
+    "models",
+    "DTMI"
+  ],
+  "author": "Microsoft",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/percebus/MSLearn-Azure-IoT-CheeseCaveFactory-DigitalTwin/issues"
+  },
+  "homepage": "https://github.com/percebus/MSLearn-Azure-IoT-CheeseCaveFactory-DigitalTwin#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
