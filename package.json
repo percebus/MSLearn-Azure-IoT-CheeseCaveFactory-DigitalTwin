@@ -8,7 +8,9 @@
     "prettier:check": "npm run prettier -- --check",
     "prettier:write": "npm run prettier -- --write",
     "style": "npm run prettier:write",
-    "lint": "npm run prettier:check",
+    "lint:sh": "bash scripts/bash/lint.ba.sh",
+    "lint:all": "npm run prettier:check",
+    "lint": "npm run lint:sh && npm run lint:all",
     "test": "exit 0"
   },
   "repository": {
