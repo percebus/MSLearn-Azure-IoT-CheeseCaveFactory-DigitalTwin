@@ -8,13 +8,12 @@ env:
   NODE_VERSION: "16.x"
 
 jobs:
-
   # SRC https://medium.com/attest-product-and-technology/adding-a-unique-github-build-identifier-7aa2e83cadca
   id:
     name: Build Id
     runs-on: ubuntu-latest
     steps:
-      - name: 'id'
+      - name: "id"
         id: id
         run: echo "BUILD_ID=$(date +%s)" >> $GITHUB_ENV
       - name: echo
